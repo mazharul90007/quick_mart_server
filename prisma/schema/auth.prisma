@@ -68,7 +68,6 @@ model Verification {
 
 enum UserRole {
   CUSTOMER
-  SELLER
   ADMIN
 }
 
