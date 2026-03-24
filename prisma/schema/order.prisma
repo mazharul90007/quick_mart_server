@@ -1,0 +1,44 @@
+model Order {
+  id              String        @id @default(uuid())
+  orderNo         String
+  totalAmount     Float
+  dueAmount       Float
+  paymentStatus   PaymentStatus @default(UNPAID)
+  customerId      String
+  status          OrderStatus   @default(PENDING)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  contactNumber   String
+  shippingAddress String
+  orderItems      OrderItem[]
+  customer        User          @relation(fields: [customerId], references: [id])
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id         String   @id @default(uuid())
+  orderId    String
+  medicineId String
+  quantity   Int
+  unitPrice  Float
+  medicine   Medicine @relation(fields: [medicineId], references: [id])
+  order      Order    @relation(fields: [orderId], references: [id])
+
+  @@map("order_items")
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
+  PARTIAL_PAID
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PACKAGING
+  ON_THE_WAY
+  DELIVERED
+  CANCELED
+}

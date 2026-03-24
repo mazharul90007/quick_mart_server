@@ -1,0 +1,1 @@
+{"version":3,"file":"category.interface.d.ts","sourceRoot":"","sources":["../../../../../src/app/modules/category/category.interface.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,oCAAoC,CAAC;AAEpE,MAAM,WAAW,iBAAiB;IAC9B,YAAY,EAAE,MAAM,CAAC;IACrB,eAAe,EAAE,MAAM,CAAC;IACxB,cAAc,EAAE,cAAc,CAAC;CAClC"}

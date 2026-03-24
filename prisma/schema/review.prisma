@@ -1,0 +1,18 @@
+model Review {
+  id         String       @id @default(uuid())
+  userId     String
+  medicineId String
+  status     ReviewStatus @default(PENDING)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  medicine   Medicine     @relation(fields: [medicineId], references: [id])
+  user       User         @relation(fields: [userId], references: [id])
+
+  @@map("reviews")
+}
+
+enum ReviewStatus {
+  PENDING
+  ACTIVE
+  REJECTED
+}
